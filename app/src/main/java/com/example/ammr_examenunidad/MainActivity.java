@@ -24,10 +24,13 @@ public class MainActivity extends AppCompatActivity {
         btnd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                // Declaramos variables que obtendran el nombre y dni ingresados
                 String nomb = nombre.getText().toString();
                 String DNI = dni.getText().toString();
 
 
+                // Enviaremos los 2 parametros ingresados en 2 variables al otro activity
                 Intent intent = new Intent(MainActivity.this, Main2Activity.class);
                 intent.putExtra("nombre", nomb);
                 intent.putExtra("dni", DNI);

@@ -13,6 +13,8 @@ import java.util.Random;
 
 public class Main2Activity extends AppCompatActivity {
 
+    //Declaramos objetos como TextView Button y variables como A,B,C
+
     private TextView vernombre;
     private CheckBox chk1, chk2;
     private Button comprar,sortear;
@@ -26,6 +28,9 @@ public class Main2Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_productos);
+
+        // Con esto obtenemos las variables enviadas del activity anterior y las almacenamos
+        // en otras variables locales
 
         Bundle b = getIntent().getExtras();
         String nombre = b.getString("nombre");
@@ -47,15 +52,20 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                // Aqui empezamos con las condiciones, ya que vamos a trabajar con checkbox
+
+                // Aqui vemos si los 2 checkbox no estan en modo check y si no lo estan, mandamos un mensaje Toast
                 if(!chk1.isChecked() && !chk2.isChecked()){
                     Toast.makeText(Main2Activity.this, "Eliga algun producto", Toast.LENGTH_SHORT).show();
                     sortear.setEnabled(false);
                 }
+                // Si tenemos los 2 checkbox escogidos se sumara y se mostrara el valor mayor de estos 2
                 else if (chk1.isChecked() && chk2.isChecked()){
                     S=A+B;
                     vertotal.setText(String.valueOf(S));
                     vermayor.setText(String.valueOf(B));
 
+                    // Con la propiedad Random generaremos un número aleatorio del 1-5
                     Random rnd = new Random();
                     for(int i = 1; i<=1; i++)
                     {
@@ -96,6 +106,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                // Obtendremos 2 valores el nombre y el cupo que fue generado  y los enviaremos a otro activity
                 String nomb = vernombre.getText().toString();
                 String cupon = generico.getText().toString();
 
